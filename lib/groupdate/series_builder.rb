@@ -128,7 +128,8 @@ module Groupdate
     private
 
     def now
-      @now ||= time_zone.now
+      # NOTE: Kapil - changing from time_zone.now => time_zone.now.end_of_day
+      @now ||= time_zone.now.end_of_day
     end
 
     def generate_series(data, multiple_groups, group_index)
